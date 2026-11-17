@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liss — Product Designer</title>
+  <meta name="description" content="Liss Maslichenko — product designer turning complex product logic into clear user experiences.">
+  <meta property="og:title" content="Liss — Product Designer">
+  <meta property="og:description" content="Product designer turning complex product logic into clear user experiences.">
+  <meta property="og:image" content="assets/tullysub-cover.webp">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&family=Funnel+Display:wght@400;500&family=Geist:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    // enable entrance animations (skipped for people who turned motion off)
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("anim");
+  </script>
+</head>
+<body>
+
+  <div class="sky" aria-hidden="true">
+    <canvas class="sky__glow"></canvas>
+    <canvas class="sky__stars"></canvas>
+  </div>
+
+  <header class="header">
+    <div class="header__inner container">
+      <a class="logo" href="#top" aria-label="Liss — home">₊˚⊹ Liss ⊹˚₊</a>
+
+      <nav class="nav" aria-label="Main">
+        <a href="#work" data-i18n="nav.work">Work</a>
+        <a href="#contacts" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" class="lang__btn" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang__btn" data-lang="ru" aria-pressed="false">RU</button>
+        </div>
+        <button type="button" class="menu-btn" aria-expanded="false" aria-controls="mobile-menu" data-i18n-aria="menu.open" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden>
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#contacts" data-i18n="nav.contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <img class="hero__avatar" src="assets/avatar.webp" width="250" height="250"
+           alt="Liss sitting on a white bench in a park" data-i18n-alt="hero.alt">
+      <div class="hero__text">
+        <h1 class="hero__greeting" data-i18n="hero.greeting">Hey, I'm Liss</h1>
+        <p class="hero__intro">
+          <span data-i18n="hero.role">Product Designer focused on turning complex product logic into clear user experiences</span>
+          <span data-i18n="hero.status">Currently looking for a product design role</span>
+        </p>
+      </div>
+      <nav class="contacts" id="contacts" aria-label="Contacts">
+        <a class="contacts__item" href="https://t.me/maslichenko" target="_blank" rel="noopener">Telegram <span class="contacts__icon" aria-hidden="true">↗</span></a>
+        <button class="contacts__item" type="button" data-copy="maslicenkoelizaveta306@gmail.com" title="maslicenkoelizaveta306@gmail.com">
+          <span class="contacts__label">Email</span> <span class="contacts__icon" aria-hidden="true">⧉</span>
+        </button>
+        <a class="contacts__item" href="https://drive.google.com/file/d/1IwhnZFdNfkhxzqr5xD-nDtbBcWf3-evi/view" target="_blank" rel="noopener">CV <span class="contacts__icon" aria-hidden="true">↗</span></a>
+      </nav>
+    </section>
+
+    <section id="work" class="cases" aria-label="Selected work">
+
+      <!-- Case — Tullysub -->
+      <article class="case case--tullysub container">
+        <div class="case__cover case__cover--plain" data-cta="soon">
+          <picture>
+            <source media="(max-width: 720px)" srcset="assets/tullysub-cover-mobile.webp">
+            <img src="assets/tullysub-cover.webp" width="948" height="580"
+                 alt="Three Tullysub app screens: budget dashboard, empty subscriptions list and spending analytics"
+                 data-i18n-alt="tullysub.alt">
+          </picture>
+        </div>
+        <div class="case__info">
+          <div class="case__head">
+            <img class="case__icon" src="assets/tullysub-icon.png" width="44" height="44" alt="">
+            <h2 class="case__title">Tullysub</h2>
+          </div>
+          <p class="case__desc" data-i18n="tullysub.desc">Subscription management for personal and shared plans. A mobile app with role-based access, payment-status tracking, and a spend-analytics screen — built to help users control recurring expenses and avoid losing money on forgotten services.</p>
+          <div class="case__meta">
+            <dl class="case__details">
+              <div class="case__detail case__detail--year"><dt data-i18n="meta.year">Year</dt><dd>2026</dd></div>
+              <div class="case__detail"><dt data-i18n="meta.role">Role</dt><dd data-i18n="meta.productDesigner">Product Designer</dd></div>
+            </dl>
+            <div class="case__tags">
+              <span class="case__label" data-i18n="meta.tags">Tags</span>
+              <ul class="tags tags--lavender">
+                <li>B2C</li>
+                <li data-i18n="tag.fintech">Fintech</li>
+                <li data-i18n="tag.mobileApp">Mobile App</li>
+                <li>iOS &amp; Android</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case — FEFUone -->
+      <article class="case case--fefuone container">
+        <div class="case__cover case__cover--browser" data-cta="progress">
+          <img src="assets/fefuone-cover.webp" width="948" height="580" loading="lazy"
+               alt="FEFUone event builder: venue selection with capacity check, availability calendar, and equipment and services"
+               data-i18n-alt="fefuone.alt">
+        </div>
+        <div class="case__info">
+          <div class="case__head">
+            <svg class="case__icon" viewBox="0 0 44 44" aria-hidden="true">
+              <rect width="44" height="44" rx="8.75" fill="#2867AB"/>
+              <path d="M25.347 32.977C24.744 33.13 24.164 33.374 23.666 33.752 23.174 34.128 22.773 34.614 22.497 35.173L22.41 35.351C22.241 35.693 21.759 35.693 21.59 35.351L21.503 35.173C21.227 34.614 20.826 34.128 20.333 33.752 19.836 33.374 19.255 33.13 18.653 32.977 12.676 31.461 8.25 25.978 8.25 19.447 8.25 11.744 14.406 5.5 22 5.5 29.594 5.5 35.75 11.744 35.75 19.447 35.75 25.978 31.324 31.461 25.347 32.977Z" fill="#FFFFFF"/>
+              <path d="M22 40.366C22.759 40.366 23.375 39.742 23.375 38.972 23.375 38.201 22.759 37.577 22 37.577 21.241 37.577 20.625 38.201 20.625 38.972 20.625 39.742 21.241 40.366 22 40.366Z" fill="#FFFFFF"/>
+              <path d="M20.596 21.473L25.639 16.431C25.695 16.375 25.761 16.345 25.837 16.342 25.912 16.337 25.981 16.367 26.045 16.431 26.107 16.495 26.139 16.563 26.139 16.635 26.139 16.708 26.108 16.776 26.045 16.839L20.921 21.967C20.827 22.059 20.72 22.106 20.596 22.106 20.473 22.106 20.365 22.059 20.272 21.967L17.952 19.646C17.896 19.591 17.867 19.525 17.865 19.448 17.862 19.371 17.893 19.301 17.955 19.238 18.018 19.175 18.086 19.143 18.16 19.143 18.234 19.143 18.302 19.175 18.364 19.238L20.596 21.473Z" fill="#FFFFFF"/>
+              <path d="M18.891 11.393C18.621 11.609 18.432 11.933 18.35 12.312 18.296 12.663 18.35 13.096 18.594 13.474 18.621 13.501 18.648 13.555 18.675 13.582 18.784 13.717 18.918 13.852 19.053 14.015 20.567 15.42 22.405 16.447 23.972 17.23 25.054 17.772 25.675 18.366 25.918 19.285 26.27 17.609 25.918 16.772 25.594 16.284 25.026 15.366 24.108 14.934 24.026 14.88 22.729 14.149 20.945 13.285 19.864 12.366 19.459 12.014 19.134 11.663 18.999 11.285 18.972 11.311 18.918 11.339 18.891 11.393Z" fill="#2867AB"/>
+              <path d="M18.188 14.42C17.784 14.798 17.513 15.366 17.513 15.853 17.513 16.232 17.567 16.61 17.919 17.204 19.216 19.421 23.351 21.15 24.378 21.772 25.135 22.231 25.756 22.908 25.973 23.934 26.162 22.772 26.216 21.529 25.892 20.772 25.486 19.825 24.918 19.313 24.081 18.853 22.729 18.124 20.811 17.015 19.351 15.69 18.837 15.286 18.405 14.88 18.188 14.42Z" fill="#2867AB"/>
+              <path d="M21.459 12.366C20.54 12.934 19.216 13.421 18.216 14.421 17.784 14.799 17.513 15.366 17.513 15.853 17.513 16.232 17.567 16.61 17.919 17.204 17.919 16.745 18.378 16.042 19.27 15.529 20.216 14.961 21.837 14.178 22.838 13.043 23.46 12.34 23.081 11.475 22.324 11.259 22.486 11.745 21.783 12.151 21.459 12.366Z" fill="#2867AB"/>
+              <path d="M20.539 10.394C20.08 10.61 19.513 10.88 18.999 11.259 18.945 11.286 18.918 11.34 18.864 11.366 18.593 11.583 18.404 11.908 18.324 12.286 18.269 12.637 18.324 13.069 18.567 13.448 18.593 13.475 18.621 13.529 18.647 13.556 18.675 12.989 19.107 12.583 19.81 12.232 20.513 11.854 21.162 11.394 21.567 10.988 22.053 10.475 21.648 9.691 21.188 9.61 21.296 10.016 20.864 10.259 20.539 10.394Z" fill="#2867AB"/>
+              <path d="M17.161 18.53C16.296 19.746 16.35 20.746 16.918 21.638 17.891 23.124 20.324 24.259 22.269 25.233 23.215 25.719 24.08 26.233 24.783 27.044 25.243 27.585 25.648 28.233 25.918 29.071H25.946C26.161 27.882 26.135 26.368 25.837 25.53 25.566 24.719 24.972 23.881 23.783 23.124 22.242 22.152 19.864 21.26 18.458 19.935 17.918 19.368 17.378 18.962 17.161 18.53 17.189 18.53 17.189 18.53 17.161 18.53Z" fill="#2867AB"/>
+              <path d="M22.837 14.557C21.377 15.639 18.513 16.99 17.189 18.503 17.189 18.503 17.189 18.53 17.161 18.53 16.296 19.746 16.35 20.746 16.918 21.638 16.918 21.178 17.593 20.53 18.485 19.828 20.053 18.557 22.837 17.422 24.405 15.396 24.972 14.665 24.594 13.476 23.756 13.152 23.945 13.611 23.432 14.098 22.837 14.557Z" fill="#2867AB"/>
+            </svg>
+            <h2 class="case__title" data-i18n="fefuone.title">FEFUone · Event Builder</h2>
+          </div>
+          <p class="case__desc" data-i18n="fefuone.desc">Event management module for FEFU's university platform. Organizers book venues, equipment and services in one step — with live capacity checks and availability — then move through moderation and approvals with clear statuses.</p>
+          <div class="case__meta">
+            <dl class="case__details">
+              <div class="case__detail case__detail--year"><dt data-i18n="meta.year">Year</dt><dd>2026</dd></div>
+              <div class="case__detail"><dt data-i18n="meta.role">Role</dt><dd data-i18n="meta.productDesigner">Product Designer</dd></div>
+            </dl>
+            <div class="case__tags">
+              <span class="case__label" data-i18n="meta.tags">Tags</span>
+              <ul class="tags tags--blue">
+                <li>B2B</li>
+                <li data-i18n="tag.internalPlatform">Internal Platform</li>
+                <li data-i18n="tag.multiRole">Multi-role Workflow</li>
+                <li data-i18n="tag.webDesktop">Web · Desktop</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case — GeologyScience -->
+      <article class="case case--geology container">
+        <div class="case__cover case__cover--card" data-cta="soon">
+          <img src="assets/geology-cover.webp" width="948" height="580" loading="lazy"
+               alt="GeologyScience.ru home page with an interactive map of Russia"
+               data-i18n-alt="geology.alt">
+        </div>
+        <div class="case__info">
+          <div class="case__head">
+            <span class="case__icon case__icon--placeholder" aria-hidden="true">GS</span>
+            <h2 class="case__title">GeologyScience.ru</h2>
+          </div>
+          <p class="case__desc" data-i18n="geology.desc">Systemic redesign of a data-heavy research platform — unifying navigation, data tables, filters, and interactive tools (maps, charts) into one design system across 40+ screens, without changing the existing technical architecture.</p>
+          <div class="case__meta">
+            <dl class="case__details">
+              <div class="case__detail case__detail--year"><dt data-i18n="meta.year">Year</dt><dd>2025</dd></div>
+              <div class="case__detail"><dt data-i18n="meta.role">Role</dt><dd data-i18n="meta.productDesigner">Product Designer</dd></div>
+            </dl>
+            <div class="case__tags">
+              <span class="case__label" data-i18n="meta.tags">Tags</span>
+              <ul class="tags tags--blue">
+                <li data-i18n="tag.designSystem">Design System</li>
+                <li data-i18n="tag.ia">Information Architecture</li>
+                <li data-i18n="tag.redesign">Redesign</li>
+                <li data-i18n="tag.webDesktop">Web · Desktop</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner container">
+      <span class="footer__copy" data-i18n="footer.copy">© 2026—ongoing</span>
+      <span class="footer__note" data-i18n="footer.note">made thoughtfully, late at night ₊⊹</span>
+      <span class="footer__moon">ムーン</span>
+    </div>
+  </footer>
+
+  <!-- floating label that follows the cursor over project covers -->
+  <div class="cover-pill" aria-hidden="true">
+    <span class="cover-pill__inner"><span class="cover-pill__dot"></span><span class="cover-pill__text">Open case</span></span>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
