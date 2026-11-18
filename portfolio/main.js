@@ -449,7 +449,6 @@ function setupReveal() {
     mark(c.querySelector(".case__details"), 700);
     c.querySelectorAll(".case__label, .tags li").forEach((el, i) => mark(el, 800 + i * 100));
   });
-  mark(document.querySelector(".footer__inner"), 0);
 
   // once an element has finished appearing, drop the animation classes so hover/press effects stay instant
   const done = (el) => {
