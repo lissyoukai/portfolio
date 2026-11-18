@@ -22,6 +22,44 @@
 </head>
 <body>
 
+  <!-- icon set: used via <svg><use href="#i-…"/></svg> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-telegram" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11" fill="currentColor"/>
+      <path fill="#fff" d="M6.1 11.7 16.6 7.6c.5-.2.9.1.8.9l-1.8 8.4c-.1.6-.5.8-1 .5l-2.7-2-1.3 1.3c-.2.2-.3.3-.6.3l.2-2.8 5-4.6c.2-.2 0-.3-.3-.1l-6.2 3.9-2.7-.8c-.6-.2-.6-.6.1-.9Z"/>
+    </symbol>
+    <symbol id="i-at" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.9 7.9"/>
+      </g>
+    </symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2.5H7a2.5 2.5 0 0 0-2.5 2.5v14A2.5 2.5 0 0 0 7 21.5h10a2.5 2.5 0 0 0 2.5-2.5V8Z"/>
+        <path d="M14 2.5V8h5.5M8.5 13h7M8.5 17h4.5"/>
+      </g>
+    </symbol>
+    <symbol id="i-work" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round">
+        <rect x="3" y="3" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2"/>
+        <rect x="3" y="13.5" width="7.5" height="7.5" rx="2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2"/>
+      </g>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 16 16">
+      <path d="M4.229 11.771 11.771 4.229M6.115 4.229h5.657v5.657" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="9" y="9" width="12" height="12" rx="3"/>
+        <path d="M15 9V6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3h3"/>
+      </g>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
   <div class="sky" aria-hidden="true">
     <canvas class="sky__glow"></canvas>
     <canvas class="sky__stars"></canvas>
@@ -33,7 +71,28 @@
 
       <nav class="nav" aria-label="Main">
         <a href="#work" data-i18n="nav.work">Work</a>
-        <a href="#contacts" data-i18n="nav.contact">Contact</a>
+        <div class="nav__contact">
+          <button type="button" class="nav__btn" aria-expanded="false" aria-controls="contact-pop" data-i18n="nav.contact">Contact</button>
+          <div class="pop" id="contact-pop" hidden>
+            <div class="pop__group">
+              <span class="pop__label">main contacts</span>
+              <div class="pop__list">
+                <a class="link-pill" href="https://t.me/maslichenko" target="_blank" rel="noopener">
+                  <span class="link-pill__lead"><svg class="link-pill__icon" aria-hidden="true"><use href="#i-telegram"/></svg><span>telegram</span></span>
+                  <svg class="link-pill__trail" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+                <button class="link-pill" type="button" data-copy="maslicenkoelizaveta306@gmail.com" title="maslicenkoelizaveta306@gmail.com">
+                  <span class="link-pill__lead"><svg class="link-pill__icon" aria-hidden="true"><use href="#i-at"/></svg><span class="copy-label" data-default="email">email</span></span>
+                  <span class="link-pill__trail copy-icon"><svg class="copy-icon__copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="copy-icon__check" aria-hidden="true"><use href="#i-check"/></svg></span>
+                </button>
+                <a class="link-pill" href="https://drive.google.com/file/d/1IwhnZFdNfkhxzqr5xD-nDtbBcWf3-evi/view" target="_blank" rel="noopener">
+                  <span class="link-pill__lead"><svg class="link-pill__icon" aria-hidden="true"><use href="#i-doc"/></svg><span>CV</span></span>
+                  <svg class="link-pill__trail" aria-hidden="true"><use href="#i-arrow"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <div class="header__actions">
@@ -47,9 +106,33 @@
       </div>
     </div>
 
-    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden>
-      <a href="#work" data-i18n="nav.work">Work</a>
-      <a href="#contacts" data-i18n="nav.contact">Contact</a>
+    <nav class="mobile-menu pop" id="mobile-menu" aria-label="Mobile" hidden>
+      <div class="pop__group">
+        <span class="pop__label">navigation</span>
+        <div class="pop__list">
+          <a class="link-pill" href="#work">
+            <span class="link-pill__lead"><svg class="link-pill__icon" aria-hidden="true"><use href="#i-work"/></svg><span data-i18n="nav.work">Work</span></span>
+            <svg class="link-pill__trail" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="pop__group">
+        <span class="pop__label">main contacts</span>
+        <div class="pop__list">
+          <a class="link-pill" href="https://t.me/maslichenko" target="_blank" rel="noopener">
+            <span class="link-pill__lead"><svg class="link-pill__icon" aria-hidden="true"><use href="#i-telegram"/></svg><span>telegram</span></span>
+            <svg class="link-pill__trail" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+          <button class="link-pill" type="button" data-copy="maslicenkoelizaveta306@gmail.com" title="maslicenkoelizaveta306@gmail.com">
+            <span class="link-pill__lead"><svg class="link-pill__icon" aria-hidden="true"><use href="#i-at"/></svg><span class="copy-label" data-default="email">email</span></span>
+            <span class="link-pill__trail copy-icon"><svg class="copy-icon__copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="copy-icon__check" aria-hidden="true"><use href="#i-check"/></svg></span>
+          </button>
+          <a class="link-pill" href="https://drive.google.com/file/d/1IwhnZFdNfkhxzqr5xD-nDtbBcWf3-evi/view" target="_blank" rel="noopener">
+            <span class="link-pill__lead"><svg class="link-pill__icon" aria-hidden="true"><use href="#i-doc"/></svg><span>CV</span></span>
+            <svg class="link-pill__trail" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -65,11 +148,11 @@
         </p>
       </div>
       <nav class="contacts" id="contacts" aria-label="Contacts">
-        <a class="contacts__item" href="https://t.me/maslichenko" target="_blank" rel="noopener">Telegram <span class="contacts__icon" aria-hidden="true">↗</span></a>
+        <a class="contacts__item" href="https://t.me/maslichenko" target="_blank" rel="noopener"><svg class="contacts__lead" aria-hidden="true"><use href="#i-telegram"/></svg>Telegram <svg class="contacts__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <button class="contacts__item" type="button" data-copy="maslicenkoelizaveta306@gmail.com" title="maslicenkoelizaveta306@gmail.com">
-          <span class="contacts__label">Email</span> <span class="contacts__icon" aria-hidden="true">⧉</span>
+          <svg class="contacts__lead" aria-hidden="true"><use href="#i-at"/></svg><span class="copy-label" data-default="Email">Email</span> <span class="contacts__icon copy-icon"><svg class="copy-icon__copy" aria-hidden="true"><use href="#i-copy"/></svg><svg class="copy-icon__check" aria-hidden="true"><use href="#i-check"/></svg></span>
         </button>
-        <a class="contacts__item" href="https://drive.google.com/file/d/1IwhnZFdNfkhxzqr5xD-nDtbBcWf3-evi/view" target="_blank" rel="noopener">CV <span class="contacts__icon" aria-hidden="true">↗</span></a>
+        <a class="contacts__item" href="https://drive.google.com/file/d/1IwhnZFdNfkhxzqr5xD-nDtbBcWf3-evi/view" target="_blank" rel="noopener"><svg class="contacts__lead" aria-hidden="true"><use href="#i-doc"/></svg>CV <svg class="contacts__icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </nav>
     </section>
 

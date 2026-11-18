@@ -30,16 +30,16 @@ Owner designs in Paper (paper.design), then the design is moved into code. Talk 
 - Email: maslicenkoelizaveta306@gmail.com (copy-to-clipboard instead of mailto)
 - CV: https://drive.google.com/file/d/1IwhnZFdNfkhxzqr5xD-nDtbBcWf3-evi/view
 
-Agreed plan: small pill-style contact links under the hero photo (Telegram ↗, Email copy, CV ↗) + a dropdown popover under "Contact" in the header (her Paper design: rows "telegram ↗", "email ⧉", "CV ↗"; CV needs a document icon, drop the "contact me" button). No separate contacts page.
+Done: pill contacts under the hero (Telegram ↗, Email copy, CV ↗) + "Contact" in the header opens a popover card (Paper "navbar" 518px: label "main contacts" left, row-pills right). On mobile the burger opens the same card (Paper "navbar" 375px): "navigation" (Work) + "main contacts". Icons are an inline SVG sprite at the top of index.html (`#i-telegram`, `#i-at`, `#i-doc`, `#i-work`, `#i-arrow`, `#i-copy`, `#i-check`) — her Paper mockup pulls them from hanumatori.com, don't hotlink those. No separate contacts page. About link is not added yet (no page).
 
 ## Next steps
-1. Contacts (above). About link still empty.
+1. About page/link.
 2. Case page for Tullysub: Paper → adaptive → code. Its structure becomes the template for other cases.
 3. GeologyScience case page with short interface videos.
 4. Consider moving to Astro to share header/footer between pages (Vercel supports Astro natively).
 
 ## Paper
-File "UPDATE PORTFOLIO", id `01M3KTQF62FB5FR59G1KBCWVW9`. Artboards: "Home — EN" (desktop 1200) and "Home — EN · Mobile" (375). Layer names are English, by hierarchy.
+Current file "Motivated lemon", id `01M5WE42WREC7Z7BC7S0ADXXAJ` (older: "UPDATE PORTFOLIO" `01M3KTQF62FB5FR59G1KBCWVW9`). Footer = node "Footer Bar" (white bar, soft shadow). Artboards: "Home — EN" (desktop 1200) and "Home — EN · Mobile" (375). Layer names are English, by hierarchy.
 
 ## Deploy
 Edit → Source Control: commit → Sync Changes → Vercel redeploys automatically.

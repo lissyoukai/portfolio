@@ -124,6 +124,50 @@ window.matchMedia("(min-width: 721px)").addEventListener("change", (e) => {
   if (e.matches) setMenu(false);
 });
 
+// close the mobile menu when tapping outside it
+document.addEventListener("click", (e) => {
+  if (!mobileMenu.hidden && !e.target.closest("#mobile-menu, .menu-btn")) setMenu(false);
+});
+
+/* ================= Contact popover (desktop header) =================
+   Opens on click, and on hover for mouse users. Closes on outside click, Escape, or leaving it with the mouse. */
+const contactBtn = document.querySelector(".nav__btn");
+const contactPop = document.getElementById("contact-pop");
+const contactWrap = document.querySelector(".nav__contact");
+let popCloseTimer;
+let popOpenedAt = 0;
+
+function setPop(open) {
+  clearTimeout(popCloseTimer);
+  if (open && contactPop.hidden) popOpenedAt = performance.now();
+  contactBtn.setAttribute("aria-expanded", String(open));
+  contactPop.hidden = !open;
+}
+
+contactBtn.addEventListener("click", () => {
+  // with a mouse the popover is usually already open from hover — don't let that same click close it
+  if (!contactPop.hidden && performance.now() - popOpenedAt < 600) return;
+  setPop(contactPop.hidden);
+});
+
+if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  contactWrap.addEventListener("pointerenter", () => setPop(true));
+  contactWrap.addEventListener("pointerleave", () => {
+    popCloseTimer = setTimeout(() => setPop(false), 220);
+  });
+}
+
+document.addEventListener("click", (e) => {
+  if (!contactPop.hidden && !e.target.closest(".nav__contact")) setPop(false);
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && !contactPop.hidden) {
+    setPop(false);
+    contactBtn.focus();
+  }
+});
+
 /* ================= Night sky ₊˚⊹ =================
    An ASCII sky drawn on a canvas behind the page:
    - background: small ⊹ in loose clusters, fixed pattern (same on every visit)
@@ -448,7 +492,7 @@ const HAPTIC = {
   hover: [{ duration: 80, intensity: 0.8 }, { delay: 80, duration: 50, intensity: 0.3 }],
   click: [{ duration: 90, intensity: 1 }]
 };
-const HAPTIC_TARGETS = ".nav a, .mobile-menu a, .logo, .lang__btn, .menu-btn, .tags li, .case__cover, .contacts__item";
+const HAPTIC_TARGETS = ".nav a, .nav__btn, .link-pill, .logo, .lang__btn, .menu-btn, .tags li, .case__cover, .contacts__item";
 let audioCtx = null;
 let audioReady = false;
 let lastHoverEl = null;
@@ -562,21 +606,19 @@ function setupCoverPill() {
    Click copies the address and shows "Copied". If the browser refuses, the address itself is shown so it can be selected. */
 function setupContacts() {
   document.querySelectorAll("[data-copy]").forEach((btn) => {
-    const label = btn.querySelector(".contacts__label");
-    const icon = btn.querySelector(".contacts__icon");
+    const label = btn.querySelector(".copy-label");
+    const original = label.dataset.default;
     let timer;
     btn.addEventListener("click", async () => {
       const value = btn.dataset.copy;
       clearTimeout(timer);
       try {
         await navigator.clipboard.writeText(value);
-        label.textContent = "Copied";
-        icon.textContent = "✓";
+        label.textContent = original === "email" ? "copied" : "Copied";
         btn.classList.add("is-done");
-        timer = setTimeout(() => { label.textContent = "Email"; icon.textContent = "⧉"; btn.classList.remove("is-done"); }, 1800);
+        timer = setTimeout(() => { label.textContent = original; btn.classList.remove("is-done"); }, 1800);
       } catch (e) {
-        label.textContent = value;
-        icon.textContent = "";
+        label.textContent = value;   // clipboard blocked — show the address so it can be selected
       }
     });
   });
