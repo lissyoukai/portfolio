@@ -321,10 +321,10 @@ a.link-pill:hover .link-pill__trail { transform: translate(1px, -1px); }
 }
 
 /* ============ Contacts (same pill style as the EN/RU switch) ============ */
+/* 3 equal columns: every pill gets the width of the widest one (Telegram), content centered */
 .contacts {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 4px;
   margin-top: 8px;
   padding: 4px;
@@ -335,6 +335,8 @@ a.link-pill:hover .link-pill__trail { transform: translate(1px, -1px); }
 .contacts__item {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-width: 0;
   gap: 6px;
   padding: 4px 14px;
   border-radius: 999px;
@@ -656,10 +658,11 @@ a.link-pill:hover .link-pill__trail { transform: translate(1px, -1px); }
 
   .hero__avatar { width: 168px; height: 168px; }
 
-  .contacts { flex-wrap: nowrap; }
-  .contacts__item { gap: 5px; padding: 4px 10px; font-size: 15px; }
+  /* phone: the group spans the full width, three equal thirds; trailing arrows hidden so labels fit */
+  .contacts { width: 100%; }
+  .contacts__item { gap: 6px; padding: 6px 8px; font-size: 15px; }
   .contacts__lead { width: 16px; height: 16px; }
-  .contacts__icon { width: 13px; height: 13px; }
+  .contacts__icon { display: none; }
 
   .hero__greeting { font-size: 26px; line-height: 32px; }
 
@@ -717,4 +720,10 @@ a.link-pill:hover .link-pill__trail { transform: translate(1px, -1px); }
 
   .footer__note { order: -1; }
   .footer__moon { justify-self: auto; }
+}
+
+/* very narrow phones (≤360px): slightly tighter contact pills */
+@media (max-width: 360px) {
+  .contacts__item { gap: 4px; padding: 6px 4px; font-size: 14px; }
+  .contacts__lead { width: 14px; height: 14px; }
 }
