@@ -28,7 +28,7 @@ Owner designs in Paper (paper.design), then the design is moved into code. Talk 
 ## Contacts
 - Telegram: https://t.me/maslichenko
 - Email: maslicenkoelizaveta306@gmail.com (copy-to-clipboard instead of mailto)
-- CV: https://drive.google.com/file/d/1IwhnZFdNfkhxzqr5xD-nDtbBcWf3-evi/view
+- CV: https://drive.google.com/drive/folders/1ysAbwX6BKKPw4SbuWh8XuGzZsaMUZQj8
 
 Done: pill contacts under the hero (Telegram ↗, Email copy, CV ↗) + "Contact" in the header opens a popover card (Paper "navbar" 518px: label "main contacts" left, row-pills right). On mobile the burger opens the same card (Paper "navbar" 375px): "navigation" (Work) + "main contacts". Icons are an inline SVG sprite at the top of index.html (`#i-telegram`, `#i-at`, `#i-doc`, `#i-work`, `#i-arrow`, `#i-copy`, `#i-check`) — her Paper mockup pulls them from hanumatori.com, don't hotlink those. No separate contacts page. About link is not added yet (no page).
 
