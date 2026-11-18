@@ -504,14 +504,7 @@ a.link-pill:hover .link-pill__trail { transform: translate(1px, -1px); }
 .cases .case:last-child .case__info { padding-bottom: 40px; }
 
 /* ============ Footer ============ */
-.footer {
-  background: var(--paper);
-  box-shadow:
-    0 -0.6px 0.6px -1.25px rgba(0, 0, 0, 0.18),
-    0 -2.3px 2.3px -2.5px rgba(0, 0, 0, 0.16),
-    0 -10px 10px -3.75px rgba(0, 0, 0, 0.06);
-}
-
+/* no background or shadow: the footer sits on the same starry sky as the rest of the page */
 .footer__inner {
   min-height: 80px;
   display: grid;

@@ -39,7 +39,7 @@ Done: pill contacts under the hero (Telegram ↗, Email copy, CV ↗) + "Contact
 4. Consider moving to Astro to share header/footer between pages (Vercel supports Astro natively).
 
 ## Paper
-Current file "Motivated lemon", id `01M5WE42WREC7Z7BC7S0ADXXAJ` (older: "UPDATE PORTFOLIO" `01M3KTQF62FB5FR59G1KBCWVW9`). Footer = node "Footer Bar" (white bar, soft shadow). Artboards: "Home — EN" (desktop 1200) and "Home — EN · Mobile" (375). Layer names are English, by hierarchy.
+Current file "Motivated lemon", id `01M5WE42WREC7Z7BC7S0ADXXAJ` (older: "UPDATE PORTFOLIO" `01M3KTQF62FB5FR59G1KBCWVW9`). Footer = node "Footer Bar", but on the site it has NO background and NO shadow — it is part of the page, stars continue under it (her decision). Artboards: "Home — EN" (desktop 1200) and "Home — EN · Mobile" (375). Layer names are English, by hierarchy.
 
 ## Deploy
 Edit → Source Control: commit → Sync Changes → Vercel redeploys automatically.
