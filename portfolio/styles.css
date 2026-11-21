@@ -20,7 +20,7 @@
   --shadow-card: 0 8px 34px rgba(0, 0, 0, 0.12);
 
   /* how long one element takes to appear; the pauses between elements are in main.js (setupReveal) */
-  --reveal-dur: 1.5s;
+  --reveal-dur: 1.3s;
 }
 
 /* ============ Base ============ */
